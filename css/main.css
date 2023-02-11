@@ -285,6 +285,7 @@ textarea {
 
 body {
   background-color: var(--c-blue-dark);
+  overflow: hidden;
 }
 
 h1 {
@@ -307,7 +308,8 @@ p {
 }
 
 .box {
-  background-image: url("../img/geel_design.png"), linear-gradient(var(--c-blue-2), var(--c-blue-1));
+  /* background-image: url("../img/geel_design.png"), linear-gradient(var(--c-blue-2), var(--c-blue-1)); */
+  background-image: linear-gradient(var(--c-blue-2), var(--c-blue-1));
   background-position: center;
   background-repeat: no-repeat;
   background-size: 640px auto; 
@@ -327,12 +329,22 @@ p {
   transform: translateX(-50%); */
 
   box-sizing: border-box;
-  padding: 1.2em 2.4em;
+  padding: 1.2em 0;
 }
 
 #logo, #description {
+  padding: 0 2.4em;
   position: relative;
   z-index: 1;
+}
+
+#swirl {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 0;
 }
 
 #instagram {}
@@ -357,20 +369,7 @@ p {
   body {
     font-size: 0.8em;
   }
-
-  .box {
-    background-size: 576px auto;
-  }
-}
-
-@media (max-width: 440px) {
-  .box {
-    background-size: 440px auto;
-  }
-}
-
-@media (max-width: 375px) {
-  .box {
-    background-size: 375px auto;
+  #logo, #description {
+    padding: 0 1.4em;
   }
 }
