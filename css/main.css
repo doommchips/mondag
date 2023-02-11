@@ -284,13 +284,13 @@ textarea {
 
 
 body {
-  /* background-image: linear-gradient(var(--c-blue-2), var(--c-blue-1)); */
   background-color: var(--c-blue-dark);
 }
 
 h1 {
   color: var(--c-raspberry);
   font-size: 4em;
+  margin: 0;
 }
 
 a, a:visited {
@@ -304,36 +304,6 @@ a:hover {
 
 p {
   margin: 0;
-}
-
-#bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-  z-index: 0;
-  opacity: 0.8;
-
-  /* background-image: url(../img/geel_design.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;  */
-}
-
-#bg img ,
-#bg svg {
-  fill: var(--c-yellow);
-  filter: blur(1px);
-
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 10%;
-  /* -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
 }
 
 .box {
@@ -357,21 +327,15 @@ p {
   transform: translateX(-50%); */
 
   box-sizing: border-box;
-  padding: 30px 60px;
+  padding: 1.2em 2.4em;
 }
-
-  .box h1 {
-    margin: 0;
-  }
 
 #logo, #description {
   position: relative;
   z-index: 1;
 }
 
-#instagram {
-
-}
+#instagram {}
 
 #title {
   color: var(--c-white);
@@ -387,13 +351,14 @@ p {
 
 #artists {
   font-weight: 400;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto); */
 }
 
-#artists p {
-  /* grid-column: 1 / 3;
-  grid-row: 1; */
+@media (max-width: 576px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  .box {
+    background-size: 576px auto;
+  }
 }
