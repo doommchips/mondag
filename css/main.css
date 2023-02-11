@@ -369,8 +369,8 @@ p {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
   .box {
-    background-size: 360px auto;
+    background-size: 375px auto;
   }
 }
