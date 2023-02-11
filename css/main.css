@@ -362,3 +362,15 @@ p {
     background-size: 576px auto;
   }
 }
+
+@media (max-width: 440px) {
+  .box {
+    background-size: 440px auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .box {
+    background-size: 360px auto;
+  }
+}
