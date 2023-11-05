@@ -9,10 +9,10 @@
 <section>
     {#each exhibs as exhibition}
         {#if exhibition.title == "Tentoonstelling #2"}
-            <h2>{exhibition.title}</h2>
+            <h2>Upcoming exhibition</h2>
             <div class="offset">
                 <div class="offset-container">
-                    <h3>Upcoming exhibition</h3>
+                    <h3>{exhibition.title}</h3>
                     <p class="date-loc">
                         {exhibition.location}<br />
                         {formatDateDay(exhibition.startDate)} &mdash; {formatDate(exhibition.closeDate)}
