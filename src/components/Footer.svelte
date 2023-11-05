@@ -1,6 +1,8 @@
 <script>
 	import Artists from './Artists.svelte';
 	export let artists;
+
+	let currentYear = new Date().getFullYear();  // returns the current year
 </script>
 
 <footer>
@@ -8,9 +10,9 @@
 		<h3>Follow us</h3>
 		<ul class="social-list">
 			<li><a href="https://www.instagram.com/mondag_collectief/" target="_blank" class="alt" title="Follow us on Instagram">Instagram</a></li>
-			<li><a href="https://mailchimp.com/" target="_blank" class="alt" title="Sign up to our email newsletter">Newsletter</a></li>
+			<li><a href="https://mailchi.mp/0d76c2fbda52/m-o-n-d-a-g-nieuwsbrief" target="_blank" class="alt" title="Sign up to our email newsletter">Newsletter</a></li>
 		</ul>
-		<h3 class="copyright">&copy; 2023 M O N D A G</h3>
+		<h3 class="copyright">&copy; {currentYear} M O N D A G</h3>
 	</div>
 	<div class="half">
 		<h3>Artists</h3>

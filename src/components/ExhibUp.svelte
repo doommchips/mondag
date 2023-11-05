@@ -15,7 +15,12 @@
                     <h3>{exhibition.title}</h3>
                     <p class="date-loc">
                         {exhibition.location}<br />
-                        {formatDateDay(exhibition.startDate)} &mdash; {formatDate(exhibition.closeDate)}
+                        <!-- checks if exhibition takes place over one day, if so only shows a single date, else shows range -->
+                        {#if formatDateDay(exhibition.startDate) == formatDateDay(exhibition.closeDate)}
+                            {formatDate(exhibition.closeDate)}
+                        {:else}
+                            {formatDateDay(exhibition.startDate)} &mdash; {formatDate(exhibition.closeDate)}
+                        {/if}
                     </p>
                 </div>
             </div>
