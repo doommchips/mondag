@@ -40,7 +40,8 @@ export async function getExhibitions() {
       startDate,
       closeDate,
       location,
-      mainImage
+      mainImage,
+      images
     } | order(lower(title) asc)`
   );
 }

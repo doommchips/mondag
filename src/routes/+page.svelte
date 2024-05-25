@@ -1,7 +1,8 @@
 <script>
 	import Intro from '../components/Intro.svelte';
 	import Artists from '../components/Artists.svelte';
-	import ExhibUp from '../components/ExhibUp.svelte';
+	import ExhUpcoming from '../components/ExhibitionsUpcoming.svelte';
+	import ExhPast from '../components/ExhibitionsPast.svelte';
 
 	export let data;
 </script>
@@ -16,7 +17,8 @@
 
 	<Intro />
 	<Artists artists={data.artists} />
-	<ExhibUp exhibs={data.exhibitions} />
+	<ExhUpcoming exhibitions={data.exhibitions} />
+	<ExhPast exhibitions={data.exhibitions} />
 
 </section>
 

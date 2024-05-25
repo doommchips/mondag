@@ -3,12 +3,12 @@
     import { formatDateDay } from '$lib/utils';
     import Image from './Image.svelte';
 
-    export let exhibs;
+    export let exhibitions;
 </script>
 
-<section>
-    {#each exhibs as exhibition}
-        {#if exhibition.title == "Tentoonstelling #2"}
+{#each exhibitions as exhibition}
+    {#if exhibition.title == "Tentoonstelling #2"}
+        <section>
             <h2>Upcoming exhibition</h2>
             <div class="offset">
                 <div class="offset-container">
@@ -24,10 +24,10 @@
                     </p>
                 </div>
             </div>
-            <Image image={exhibition.mainImage} altTitle="Upcoming exhibition {exhibition.title} by M O N D A G, {formatDateDay(exhibition.startDate)} &mdash; {formatDate(exhibition.closeDate)}" />
-        {/if}
-    {/each}
-</section>
+            <Image image={exhibition.mainImage} altTitle="Upcoming exhibition {exhibition.title} by M O N D A G, {formatDateDay(exhibition.startDate)} &mdash; {formatDate(exhibition.closeDate)}" /> 
+        </section>
+    {/if}
+{/each}
 
 <style>
     section{

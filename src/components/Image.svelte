@@ -4,10 +4,19 @@
     export let image;
     export let artist;
     export let altTitle;
+    export let bento;
     export let loading = 'eager';
 </script>
 
-{#if image.title}
+
+{#if bento}
+    <img
+        src={urlFor(image).url()} 
+        alt="{altTitle}" 
+        loading="{loading}"
+        class="bento-image" 
+    />
+{:else if image.title}
     <div class="img-container">
         <img
             src={urlFor(image).url()} 
@@ -54,5 +63,11 @@
     }
     .work-title{
         text-align: right;
+    }
+    .bento-image{
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>
