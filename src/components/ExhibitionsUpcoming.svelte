@@ -1,15 +1,25 @@
 <script>
     import { formatDate } from '$lib/utils';
+    import { formatDateNum } from '$lib/utils';
     import { formatDateDay } from '$lib/utils';
     import Image from './Image.svelte';
 
     export let exhibitions;
-</script>
+    let today = new Date();
 
+    function isExhibitionComing(today, exhibitionDate){
+        // Convert dates to integers for comparison
+        today = parseInt(today.split('/').reverse().join(''));
+        exhibitionDate = parseInt(exhibitionDate.split('/').reverse().join(''));
+
+        return today <= exhibitionDate;
+    }
+</script>
 {#each exhibitions as exhibition}
-    {#if exhibition.title == "Tentoonstelling #2"}
+    {#if isExhibitionComing(formatDateNum(today), formatDateNum(exhibition.closeDate))}
         <section>
             <h2>Upcoming exhibition</h2>
+            
             <div class="offset">
                 <div class="offset-container">
                     <h3>{exhibition.title}</h3>

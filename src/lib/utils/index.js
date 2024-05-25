@@ -19,3 +19,11 @@ export function formatDateDay(date) {
     day: "numeric",
   });
 }
+
+export function formatDateNum(date) {
+  return new Date(date).toLocaleDateString("en-UK", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+}
