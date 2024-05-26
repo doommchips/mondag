@@ -9,5 +9,5 @@ export const load = async ({ params }) => {
   const artist = await getArtist(params.slug);
   if (artist) return artist;
 
-  throw error(404, "Not found");
+  error(404, "Not found");
 };
