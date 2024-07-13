@@ -18,7 +18,7 @@
 {#each exhibitions as exhibition}
     {#if isExhibitionComing(formatDateNum(today), formatDateNum(exhibition.closeDate))}
         <section>
-            <h2>Upcoming exhibition</h2>
+            <h2>Upcoming event</h2>
             
             <div class="offset">
                 <div class="offset-container">

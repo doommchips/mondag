@@ -5,6 +5,9 @@
     export let statement;
     export let bio;
     export let links;
+
+    // Destructuring links for easier access
+    const { portfolioUrl, linkedinUrl, instagramUrl } = links || {};
 </script>
 
 <section>
@@ -14,14 +17,14 @@
             <h3>Links</h3>
             {#if links}
                 <ul>
-                    {#if links.portfolioUrl}
-                        <li><a href="{links.portfolioUrl}" title="Open {artistName}'s online portfolio" target="_blank">Portfolio</a></li>
+                    {#if portfolioUrl}
+                        <li><a href="{portfolioUrl}" title="Open {artistName}'s online portfolio" target="_blank" aria-label="{artistName}'s Portfolio">Portfolio</a></li>
                     {/if}
-                    {#if links.linkedinUrl}
-                        <li><a href="{links.linkedinUrl}" title="Open {artistName}'s LinkedIn profile" target="_blank">LinkedIn</a></li>
+                    {#if linkedinUrl}
+                        <li><a href="{linkedinUrl}" title="Open {artistName}'s LinkedIn profile" target="_blank" aria-label="{artistName}'s LinkedIn">LinkedIn</a></li>
                     {/if}
-                    {#if links.instagramUrl}
-                        <li><a href="{links.instagramUrl}" title="Open {artistName}'s Instagram profile" target="_blank">Instagram</a></li>
+                    {#if instagramUrl}
+                        <li><a href="{instagramUrl}" title="Open {artistName}'s Instagram profile" target="_blank" aria-label="{artistName}'s Instagram">Instagram</a></li>
                     {/if}
                 </ul>
             {:else}

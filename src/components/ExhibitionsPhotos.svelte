@@ -1,50 +1,37 @@
 <script>
     import Image from './Image.svelte';
 
-    export let exhibitions;
-    let exhibitionImages = [];
+    export let exhibitionPhotos;
 
+    // Improved shuffle function for better readability and performance
     function shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
+        return array
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value);
     }
 
-    $: {
-        if (exhibitions) {
-            // Get all images from the exhibitions
-            exhibitionImages = exhibitions.map(exhibition => 
-                Object.entries(exhibition.images)
-                    .map(([, value]) => value)
-                    .filter(item => typeof item === 'object' && item !== null)
-            ).flat();
-
-            // Shuffle the array and reduce it to the first 6 items
-            exhibitionImages = shuffle(exhibitionImages).slice(0, 6);
-
-            console.log(exhibitionImages);
-        }
+    // Function to process and shuffle exhibition photos
+    function processExhibitionPhotos(exhibitionPhotos) {
+        let images = exhibitionPhotos.flatMap(exhibitionPhoto =>
+            exhibitionPhoto.images && typeof exhibitionPhoto.images === 'object' ?
+            Object.values(exhibitionPhoto.images).filter(item => item && typeof item === 'object') :
+            []
+        );
+        return shuffle(images).slice(0, 6);
     }
+
+    // Reactive statement to process exhibitionPhotos
+    $: processedExhibitionPhotos = exhibitionPhotos ? processExhibitionPhotos(exhibitionPhotos) : [];
 </script>
 
 <section>
     <h2>Past exhibitions</h2>
     <div class="gallery">
-        {#each exhibitionImages as image}
-            <div class="card"><Image image={image} altTitle="Photo" bento="true" /></div>
+        {#each processedExhibitionPhotos as exhPhoto}
+            <div class="card">
+                <Image image={exhPhoto} altTitle="Photo" bento="true" />
+            </div>
         {/each}
     </div>
 </section>

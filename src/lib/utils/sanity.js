@@ -40,8 +40,14 @@ export async function getExhibitions() {
       startDate,
       closeDate,
       location,
-      mainImage,
-      images
+      mainImage
     } | order(lower(title) asc)`
+  );
+}
+export async function getExhibitionPhotos() {
+  return await client.fetch(
+    groq`*[_type == "exhibition"]{
+      images
+    }[0...5]`
   );
 }
